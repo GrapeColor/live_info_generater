@@ -175,11 +175,15 @@ const choiceLiver = liver => {
   if (!emoji) return;
 
   if (liver.getAttribute('aria-pressed') === 'true') {
-    const selectedLiver = document.createElement('img');
+    const selectedLiver = document.createElement('button');
     selectedLiver.setAttribute('id', `selected-${emoji.name}`);
     selectedLiver.setAttribute('class', 'liver-selected-button col-sm-1 col-2 btn btn-primary p-0');
     selectedLiver.setAttribute('title', liverName);
-    selectedLiver.setAttribute('src', liver.getAttribute('src'));
+
+    const liverEmoji = liver.getElementsByTagName('img')[0];
+    const selectedLiverEmoji = document.createElement('img');
+    selectedLiverEmoji.setAttribute('class', 'img-fluid rounded');
+    selectedLiverEmoji.setAttribute('src', liverEmoji.getAttribute('src'));
 
     selectedLiver.addEventListener('click', () => {
       liver.classList.remove('active');
@@ -190,6 +194,7 @@ const choiceLiver = liver => {
     liver.addEventListener('click', () => removeLiver(selectedLiver));
 
     selectedLiversField.appendChild(selectedLiver);
+    selectedLiver.appendChild(selectedLiverEmoji);
     selectedLivers.set(liverName, emoji);
 
     updateResult();
@@ -197,12 +202,19 @@ const choiceLiver = liver => {
 }
 
 liverEmojis.forEach((emoji, name) => {
-  const liver = document.createElement('img');
+  const liver = document.createElement('button');
+  liver.setAttribute('type', 'button');
   liver.setAttribute('class', 'liver-select-button col-lg-1 col-2 btn btn-outline-primary border-0 p-1');
   liver.setAttribute('title', name);
-  liver.setAttribute('src', `https://cdn.discordapp.com/emojis/${emoji.id}.png`);
+  liver.setAttribute('data-bs-toggle', 'tooltip');
+  liver.setAttribute('data-bs-placement', 'top');
   liver.setAttribute('aria-pressed', 'false');
   liver.setAttribute('autocomplete', 'off');
+
+  const liverEmoji = document.createElement('img');
+  liverEmoji.setAttribute('class', 'img-fluid rounded');
+  liverEmoji.setAttribute('src', `https://cdn.discordapp.com/emojis/${emoji.id}.png`);
+
   if (emoji.name) {
     liver.setAttribute('data-toggle', 'button');
     liver.addEventListener('click', () => choiceLiver(liver));
@@ -211,7 +223,8 @@ liverEmojis.forEach((emoji, name) => {
     if (liverSelecterField.children.length)
       liverSelecterField.appendChild(document.createElement('hr'));
 
-  liverSelecterField.appendChild(liver);
+    liverSelecterField.appendChild(liver);
+    liver.appendChild(liverEmoji);
 });
 
 channelSelecter.addEventListener('input', () => updateResult());
