@@ -155,7 +155,7 @@ const updateResult = () => {
   const hidden = hiddenEmbed.checked;
   const urls = livingUrls.value.trim().split(/\s/).map(url => url && hidden ? `<${url}>` : url).join('\n');
 
-  selectedLivers.forEach(emoji => liverEmojis += ` :${emoji.name}:`);
+  selectedLivers.forEach(emoji => liverEmojis += ` <:${emoji.name}:${emoji.id}>`);
 
   resultText.value = `${chMention}${liverEmojis}\n${urls}`.trim();
 }
@@ -225,5 +225,5 @@ copyButton.addEventListener('click', () => {
 
 shareButton.addEventListener('click', () => {
   navigator.share({ text: resultText.value })
-    .catch(console.error);
+    .catch(undefined);
 });
