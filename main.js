@@ -177,7 +177,7 @@ const choiceLiver = liver => {
   if (liver.getAttribute('aria-pressed') === 'true') {
     const selectedLiver = document.createElement('img');
     selectedLiver.setAttribute('id', `selected-${emoji.name}`);
-    selectedLiver.setAttribute('class', 'liver-selected-button col-1 btn btn-primary p-0');
+    selectedLiver.setAttribute('class', 'liver-selected-button col-sm-1 col-2 btn btn-primary p-0');
     selectedLiver.setAttribute('title', liverName);
     selectedLiver.setAttribute('src', liver.getAttribute('src'));
 
@@ -198,7 +198,7 @@ const choiceLiver = liver => {
 
 liverEmojis.forEach((emoji, name) => {
   const liver = document.createElement('img');
-  liver.setAttribute('class', 'liver-select-button col-xl-1 col-sm-2 col-2 btn btn-outline-primary border-0 p-1');
+  liver.setAttribute('class', 'liver-select-button col-lg-1 col-2 btn btn-outline-primary border-0 p-1');
   liver.setAttribute('title', name);
   liver.setAttribute('src', `https://cdn.discordapp.com/emojis/${emoji.id}.png`);
   liver.setAttribute('aria-pressed', 'false');
