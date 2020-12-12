@@ -146,6 +146,7 @@ const hiddenEmbed = document.getElementById('hidden-embed');
 const livingUrls = document.getElementById('living-urls');
 const resultText = document.getElementById('result-text');
 const copyButton = document.getElementById('copy-button');
+const shareButton = document.getElementById('share-button');
 
 const updateResult = () => {
   const channelID = channelIDs[channelSelecter.selectedIndex - 1];
@@ -217,4 +218,9 @@ livingUrls.addEventListener('input', () => updateResult());
 copyButton.addEventListener('click', () => {
   resultText.select();
   document.execCommand('Copy');
+});
+
+shareButton.addEventListener('click', () => {
+  navigator.share({ text: resultText.value })
+    .catch(console.error);
 });
