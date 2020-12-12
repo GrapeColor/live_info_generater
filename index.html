@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+  <style>
+    .liver-select-button:hover:not(.active) { background-color: transparent; }
+  </style>
+
+  <title>実況開始メッセージ生成器</title>
+</head>
+<body class="bg-light" style="max-width: 640px; margin: 0 auto; background: url(./bg.png);">
+  <div class="container">
+    <form>
+      <div class="form-group mt-3">
+        <label for="ch-selecter">実況チャンネル</label>
+        <select id="ch-selecter" class="form-select">
+          <option class="font-italic">選択してください</option>
+          <option>実況総合1</option>
+          <option>実況総合2</option>
+          <option>実況総合3</option>
+          <option>実況総合4</option>
+          <option>実況総合5</option>
+          <option>実況総合6</option>
+          <option>実況総合7</option>
+          <option>実況総合8</option>
+          <option>実況総合9</option>
+        </select>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label for="selected-livers-field">参加ライバー</label>
+        <div class="input-group">
+          <div id="selected-livers-field" class="form-control row g-0"></div>
+          <div class="input-group-append">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lives-selecter">╋</button>
+          </div>
+        </div>
+        <p class="text-right text-secondary">※追加したライバーはタップで削除できます</p>
+      </div>
+
+      <div class="form-group mt-3">
+        <div class="row g-0">
+          <label class="col-6" for="living-urls">配信URL</label>
+          <div class="col-6 text-right">
+            <input class="form-check-input" type="checkbox" id="hidden-embed">
+            <label class="form-check-label" for="hidden-embed">埋め込みを非表示</label>
+          </div>
+        </div>
+        <textarea id="living-urls" class="form-control"></textarea>
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="result-text">生成メッセージ</label>
+        <textarea readonly id="result-text" class="form-control" style="height: 160px;"></textarea>
+        <div class="text-right">
+          <button id="copy-button" type="button" class="btn btn-primary">クリップボードへコピー</button>
+        </div>
+      </div>
+    </form>
+
+    <div id="lives-selecter" class="modal fade" tabindex="-1" aria-labelledby="liversSelecter" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title">参加ライバーをタップで選んでください（複数可）</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="liver-selecter-field" class="row"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-secondary mt-3">&copy; 2020 GrapeColor.</p>
+  </div>
+
+  <!-- Popper.js first, then Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
+  <!-- Main script -->
+  <script src="./main.js"></script>
+</body>
+</html>
