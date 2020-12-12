@@ -153,7 +153,7 @@ const updateResult = () => {
   const chMention = channelID ? `<#${channelID}>` : '';
   let liverEmojis = '';
   const hidden = hiddenEmbed.checked;
-  const urls = livingUrls.value.trim().split(/\s/).map(url => url && hidden ? `<${url}>` : url).join(' ');
+  const urls = livingUrls.value.trim().split(/\s/).map(url => url && hidden ? `<${url}>` : url).join('\n');
 
   selectedLivers.forEach(emoji => liverEmojis += ` <:${emoji.name}:${emoji.id}>`);
 
