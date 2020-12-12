@@ -198,7 +198,7 @@ const choiceLiver = liver => {
 
 liverEmojis.forEach((emoji, name) => {
   const liver = document.createElement('img');
-  liver.setAttribute('class', 'liver-select-button col-xl-1 col-sm-2 btn btn-outline-primary border-0 p-1');
+  liver.setAttribute('class', 'liver-select-button col-xl-1 col-sm-2 col-2 btn btn-outline-primary border-0 p-1');
   liver.setAttribute('title', name);
   liver.setAttribute('src', `https://cdn.discordapp.com/emojis/${emoji.id}.png`);
   liver.setAttribute('aria-pressed', 'false');
