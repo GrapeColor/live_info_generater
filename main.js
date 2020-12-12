@@ -223,7 +223,11 @@ copyButton.addEventListener('click', () => {
   document.execCommand('Copy');
 });
 
-shareButton.addEventListener('click', () => {
-  navigator.share({ text: resultText.value })
-    .catch(undefined);
+shareButton.addEventListener('click', async () => {
+  try {
+    await navigator.share({ text: resultText.value });
+  }
+  catch {
+    undefined;
+  }
 });
