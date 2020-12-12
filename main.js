@@ -155,7 +155,7 @@ const updateResult = () => {
   const hidden = hiddenEmbed.checked;
   const urls = livingUrls.value.trim().split(/\s/).map(url => url && hidden ? `<${url}>` : url).join('\n');
 
-  selectedLivers.forEach(emoji => liverEmojis += ` <:${emoji.name}:${emoji.id}>`);
+  selectedLivers.forEach(emoji => liverEmojis += ` :${emoji.name}:`);
 
   resultText.value = `${chMention}${liverEmojis}\n${urls}`.trim();
 }
@@ -198,7 +198,7 @@ const choiceLiver = liver => {
 
 liverEmojis.forEach((emoji, name) => {
   const liver = document.createElement('img');
-  liver.setAttribute('class', 'liver-select-button col-2 btn btn-outline-primary border-0 p-1');
+  liver.setAttribute('class', 'liver-select-button col-xl-1 col-sm-2 btn btn-outline-primary border-0 p-1');
   liver.setAttribute('title', name);
   liver.setAttribute('src', `https://cdn.discordapp.com/emojis/${emoji.id}.png`);
   liver.setAttribute('aria-pressed', 'false');
@@ -207,6 +207,9 @@ liverEmojis.forEach((emoji, name) => {
     liver.setAttribute('data-toggle', 'button');
     liver.addEventListener('click', () => choiceLiver(liver));
   }
+  else
+    if (liverSelecterField.children.length)
+      liverSelecterField.appendChild(document.createElement('hr'));
 
   liverSelecterField.appendChild(liver);
 });
