@@ -206,9 +206,6 @@ liverEmojis.forEach((emoji, name) => {
   liver.setAttribute('type', 'button');
   liver.setAttribute('class', 'liver-select-button col-lg-1 col-2 btn btn-outline-primary border-0 p-1');
   liver.setAttribute('title', name);
-  liver.setAttribute('data-bs-toggle', 'tooltip');
-  liver.setAttribute('data-bs-placement', 'top');
-  liver.setAttribute('aria-pressed', 'false');
   liver.setAttribute('autocomplete', 'off');
 
   const liverEmoji = document.createElement('img');
@@ -223,8 +220,8 @@ liverEmojis.forEach((emoji, name) => {
     if (liverSelecterField.children.length)
       liverSelecterField.appendChild(document.createElement('hr'));
 
-    liverSelecterField.appendChild(liver);
-    liver.appendChild(liverEmoji);
+  liverSelecterField.appendChild(liver);
+  liver.appendChild(liverEmoji);
 });
 
 channelSelecter.addEventListener('input', () => updateResult());
