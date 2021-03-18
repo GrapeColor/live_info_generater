@@ -34,7 +34,7 @@ const liverEmojis = new Map([
     ['えま★おうがすと', { name: '47EmmaAugust', id: '640010355984171039' }],
     ['える', { name: '47Elu', id: '426003601010196480' }],
     ['エリー・コニファー', { name: '47EliConifer', id: '609336365452230666' }],
-    ['御伽原江良', { name: '46OtogibaraEra', id: '586162384754704384' }],
+    // ['御伽原江良', { name: '46OtogibaraEra', id: '586162384754704384' }],
     ['小野町春香', { name: '46OnomachiHaruka', id: '586162352140058624' }],
   ['か', { name: '', id: '688295984937173055' }],
     ['語部紡', { name: '45KataribeTsumugu', id: '586162265909362688' }],
